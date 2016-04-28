@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<script type="text/javascript" src="http://ccq.178.com/s/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="script/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" type="text/css" href="script/jquery.mobile-1.4.5.min.css">
+<title>NGA - 暗黑三武器白字计算</title>
+<style>
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{display:inline-block}
+* html .clearfix{height:1%}
+.clearfix{display:block}
+.result{line-height:8rem;font-size:6em;text-align:center;padding:0;color:#222}
+.ui-footer .ui-title,.ui-header .ui-title{margin:0 5%}
+.ui-li-static.ui-collapsible>.ui-collapsible-heading{margin:0}
+.ui-li-static.ui-collapsible{padding:0}
+.ui-li-static.ui-collapsible>.ui-collapsible-heading>.ui-btn{border-top-width:0}
+.ui-li-static.ui-collapsible>.ui-collapsible-content,.ui-li-static.ui-collapsible>.ui-collapsible-heading.ui-collapsible-heading-collapsed>.ui-btn{border-bottom-width:0}
+.ui-listview{margin:0}
+.range-right .ui-slider-track{margin:0 68px 0 15px}
+div.ui-slider{margin:.25em 0}
+.anc>div{float:left}
+.anc>label{float:left;margin-top:.8rem}
+.ui-slider-popup{width:85px}
+</style>
+</head>
+<body>
+<div data-role="header">
+    <h1>NGA - 暗黑三武器白学计算</h1>
+</div>
+<div class="ui-content" role="main">
+    <div class="ui-bar ui-bar-a result" style="height:8rem;margin-bottom:1rem" id="result"></div>
+    <div class="clearfix" style="display:block;">
+        <form>
+            <div class="ui-field-contain" style="width:64%;float:left">
+                <label for="weapon-list">武器类型:</label>
+                <select name="weapon-list" id="weapon-list" data-native-menu="false" data-mini="true">
+                    <option value="0">请选择...</option>
+                    <optgroup label="远程武器">
+                        <option value="1">双手弩</option>
+                        <option value="2">双手弓</option>
+                        <option value="3">单手弩</option>
+                        <option value="5">单手魔杖</option>
+                    </optgroup>
+                    <optgroup label="单手武器">
+                        <option value="4">单手匕首</option>
+                        <option value="6">单手链枷</option>
+                        <option value="7">单手剑</option>
+                        <option value="8">单手拳套</option>
+                        <option value="9">单手祭祀刀</option>
+                        <option value="10">单手斧</option>
+                        <option value="11">单手重武器</option>
+                        <option value="12">单手矛</option>
+                        <option value="13">单手锤</option>
+                    </optgroup>
+                    <optgroup label="双手武器">
+                        <option value="14">双手链枷</option>
+                        <option value="15">双手剑</option>
+                        <option value="16">双手降魔杖</option>
+                        <option value="17">双手重武器</option>
+                        <option value="18">双手斧</option>
+                        <option value="19">双手杖</option>
+                        <option value="20">双手长柄</option>
+                        <option value="21">双手锤</option>
+                    </optgroup>
+                </select>
+            </div>
+        </form>
+        <form style="margin-left:7%;width:29%;float:left;" class="anc">
+            <label for="anc-switch" id="anc">远古:</label>
+            <select id="anc-switch" name="anc-switch" data-role="slider" data-mini="true">
+                <option value="false">否</option>
+                <option value="true">是</option>
+            </select>
+        </form>
+    </div>
+    <form class="ranges">
+        <label for="nga-sub" style="line-height:31px;margin:.25em">白学下限(<span id="1-sub">755</span>~<span id="1-sup">855</span>)</label>
+        <input type="range" name="nga-sub" id="nga-sub" min="755" max="855" value="800" data-highlight="true"
+               data-popup-enabled="true">
+    </form>
+    <form class="ranges">
+        <label for="nga-sup" style="line-height:31px;margin:.25em">白学上限(<span id="2-sub">1222</span>~<span id="2-sup">1555</span>)</label>
+        <input type="range" name="nga-sup" id="nga-sup" min="1222" max="1555" value="1533" data-highlight="true"
+               data-popup-enabled="true">
+    </form>
+    <form class="ranges">
+        <label for="nga-ed" style="float:left;line-height:31px;margin:.25em">+X%伤害(ED)</label>
+        <form style="float:left">
+            <label for="ed-switch" class="ui-hidden-accessible">ed-switch</label>
+            <select name="ed-switch" id="ed-switch" data-role="slider" data-mini="true">
+                <option value=0>无</option>
+                <option value=1>有</option>
+            </select>
+        </form>
+        <input type="range" name="nga-ed" id="nga-ed" min="6" max="10" value="10" data-highlight="true" disabled>
+    </form>
+    <form>
+        <label for="nga-spd" style="float:left;line-height:31px;margin:.25em">攻击速度提高X%</label>
+        <form style="float:left">
+            <label for="spd-switch" class="ui-hidden-accessible">spd-switch</label>
+            <select name="spd-switch" id="spd-switch" data-role="slider" data-mini="true">
+                <option value=0>无</option>
+                <option value=1>有</option>
+            </select>
+        </form>
+        <input type="range" name="nga-spd" id="nga-spd" min="5" max="7" value="7" data-highlight="true" disabled>
+    </form>
+</div>
+<script>
+    window.weapon=[//根据耶和华之触tid=8170176帖子中武器顺序编写
+        {},
+        {"wId":1,"wName":"2hCrossbow","wSpeed":1.1,"baseDamage1":779,"baseDamage2":945,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//双手弩
+        {"wId":2,"wName":"2hBow","wSpeed":1.4,"baseDamage1":143,"baseDamage2":815,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//双手弓
+        {"wId":3,"wName":"1hCrossbow","wSpeed":1.6,"baseDamage1":126,"baseDamage2":714,"norDamage1_sup":1049,"norDamage2_sup":1304,"ancDamage1_sup":1365,"ancDamage2_sup":1700,"norDamage1_sub":858,"norDamage2_sub":1028,"ancDamage1_sub":1155,"ancDamage2_sub":1410},//单手弩
+        {"wId":4,"wName":"1hDagger","wSpeed":1.5,"baseDamage1":107,"baseDamage2":321,"norDamage1_sup":1049,"norDamage2_sup":1304,"ancDamage1_sup":1365,"ancDamage2_sup":1700,"norDamage1_sub":858,"norDamage2_sub":1028,"ancDamage1_sub":1155,"ancDamage2_sub":1410},//单手匕首
+        {"wId":5,"wName":"1hWand","wSpeed":1.4,"baseDamage1":193,"baseDamage2":357,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手魔杖
+        {"wId":6,"wName":"1hFlail","wSpeed":1.4,"baseDamage1":192,"baseDamage2":355,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手链枷
+        {"wId":7,"wName":"1hSword","wSpeed":1.4,"baseDamage1":168,"baseDamage2":392,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手剑
+        {"wId":8,"wName":"1hFist","wSpeed":1.4,"baseDamage1":168,"baseDamage2":392,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手拳套
+        {"wId":9,"wName":"1hKnife","wSpeed":1.4,"baseDamage1":117,"baseDamage2":469,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手祭祀刀
+        {"wId":10,"wName":"1hAxe","wSpeed":1.3,"baseDamage1":249,"baseDamage2":461,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手斧
+        {"wId":11,"wName":"1hMighty","wSpeed":1.3,"baseDamage1":249,"baseDamage2":461,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手重武器
+        {"wId":12,"wName":"1hSpear","wSpeed":1.2,"baseDamage1":353,"baseDamage2":526,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手矛
+        {"wId":13,"wName":"1hMace","wSpeed":1.2,"baseDamage1":316,"baseDamage2":585,"norDamage1_sup":1199,"norDamage2_sup":1490,"ancDamage1_sup":1560,"ancDamage2_sup":1940,"norDamage1_sub":981,"norDamage2_sub":1175,"ancDamage1_sub":1318,"ancDamage2_sub":1609},//单手锤
+        {"wId":14,"wName":"2hFlail","wSpeed":1.15,"baseDamage1":1351,"baseDamage2":1486,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932},//双手链枷
+        {"wId":15,"wName":"2hSword","wSpeed":1.15,"baseDamage1":1137,"baseDamage2":1702,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932},//双手剑
+        {"wId":16,"wName":"2hDaibo","wSpeed":1.15,"baseDamage1":994,"baseDamage2":1845,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932},//双手降魔杖
+        {"wId":17,"wName":"2hMighty","wSpeed":1.1,"baseDamage1":1462,"baseDamage2":1609,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932},//双手重武器
+        {"wId":18,"wName":"2hAxe","wSpeed":1.1,"baseDamage1":1384,"baseDamage2":1685,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932},//双手斧
+        {"wId":19,"wName":"2hStaff","wSpeed":1.1,"baseDamage1":1229,"baseDamage2":1839,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932},//双手杖
+        {"wId":20,"wName":"2hPolearm","wSpeed":1.05,"baseDamage1":1497,"baseDamage2":1823,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932},//双手长柄
+        {"wId":21,"wName":"2hMace","wSpeed":1,"baseDamage1":1737,"baseDamage2":1912,"norDamage1_sup":1439,"norDamage2_sup":1788,"ancDamage1_sup":1870,"ancDamage2_sup":2325,"norDamage1_sub":1177,"norDamage2_sub":1410,"ancDamage1_sub":1582,"ancDamage2_sub":1932}//双手锤
+    ];
+    $(document).ready(function(){function a(a,b){var c=parseFloat(a);if(isNaN(c))return!1;var c=Math.round(a*Math.pow(10,b))/Math.pow(10,b),d=c.toString(),e=d.indexOf(".");for(e<0&&(e=d.length,d+=".");d.length<=e+b;)d+="0";return d}function b(){var a=$("#weapon-list").val();if(0==a)return 0;var b=weapon[a],d=$("#anc-switch").val();"true"==d?(c($("#nga-sub"),b.ancDamage1_sub,b.ancDamage1_sup),c($("#nga-sup"),b.ancDamage2_sub,b.ancDamage2_sup),$("#1-sub").html(b.ancDamage1_sub),$("#1-sup").html(b.ancDamage1_sup),$("#2-sub").html(b.ancDamage2_sub),$("#2-sup").html(b.ancDamage2_sup)):(c($("#nga-sub"),b.norDamage1_sub,b.norDamage1_sup),c($("#nga-sup"),b.norDamage2_sub,b.norDamage2_sup),$("#1-sub").html(b.norDamage1_sub),$("#1-sup").html(b.norDamage1_sup),$("#2-sub").html(b.norDamage2_sub),$("#2-sup").html(b.norDamage2_sup))}function c(a,b,c){var e=$(a).siblings().find("div").width()/$(a).siblings().find("div").parent().width()*100,f=parseInt((c-b)*e/100+b);$(a).prop("min",b),$(a).prop("max",c),$(a).prop("value",f),$(a).siblings().find("div").css("width",e+"%"),$(a).siblings().find("a").css("left",e+"%"),d()}function d(){var b=$("#weapon-list").val(),c=weapon[b].baseDamage1,d=weapon[b].baseDamage2,e=weapon[b].wSpeed,f=Number($("#nga-sub").val()),g=Number($("#nga-sup").val()),h=Number($("#nga-ed").val()),i=Number($("#nga-spd").val()),j=$("#ed-switch").val(),k=$("#spd-switch").val();$("#result").html("0"==b?"----":a((c+d+f+g)/2*e*(1+k*i/100)*(1+j*h/100),1))}$(".ranges").on("change click","",function(){d()}),$("html").on("change click","",function(){d()}),$("#ed-switch").on("load change click","",function(){var a=$(this).val();$("#nga-ed").slider(1==a?"enable":"disable")}),$("#spd-switch").on("load change click","",function(){var a=$(this).val();$("#nga-spd").slider(1==a?"enable":"disable")}),$("#weapon-list").on("load change click","",function(){b()}),$("#anc-switch").on("load change click","",function(){b()}),d()});
+</script>
+</body>
+</html>
