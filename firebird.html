@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>NGA黑火鸟计算器</title>
+    <meta name="author" content="redsaru, NGA">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://ccq.178.com/s/css/bootstrap.min.css">
+    <script src="http://ccq.178.com/s/js/jquery-1.11.3.min.js"></script>
+    <script src="http://ccq.178.com/s/js/bootstrap.min.js"></script>
+    <style>
+        .green{color: green}
+        .red{color: red}
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="http://img4.nga.178.com/common_res/js_mainMenuLite.js?201542"></script>
+<div class="container">
+    <h1 style="text-align: center">NGA黑火鸟计算器</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2 style="text-align: center">初始组</h2>
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">武器DPH</span>
+                    <input type="text" class="form-control green" id="B3" placeholder="武器DPH" value="2222.7">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">其他均伤</span>
+                    <input type="text" class="form-control green" id="B4" placeholder="其他均伤" value="550">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">智力</span>
+                    <input type="text" class="form-control green" id="B5" placeholder="智力" value="20000">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">电伤</span>
+                    <input type="text" class="form-control red" id="B6" placeholder="电伤" value="0.00">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">火伤</span>
+                    <input type="text" class="form-control red" id="B7" placeholder="火伤" value="20.00">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">奥伤</span>
+                    <input type="text" class="form-control red" id="B8" placeholder="奥伤" value="19.00">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">爆率</span>
+                    <input type="text" class="form-control green" id="B9" placeholder="爆率" value="64.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">爆伤</span>
+                    <input type="text" class="form-control green" id="B10" placeholder="爆伤" value="480.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">精英伤</span>
+                    <input type="text" class="form-control green" id="B11" placeholder="精英伤" value="0.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">范围伤害</span>
+                    <input type="text" class="form-control red" id="B12" placeholder="范围伤害" value="100">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">面板CDR</span>
+                    <input type="text" class="form-control" id="B13" placeholder="面板CDR" value="50.00">
+                    <span class="input-group-addon">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">面板攻速</span>
+                    <input type="text" class="form-control" id="B14" placeholder="面板攻速" value="1.54">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">武器攻速</span>
+                    <input type="text" class="form-control" id="B15" placeholder="武器攻速" value="1.4">
+                </div>
+                <br>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">困者</span>
+                    <input type="text" class="form-control" id="B18" placeholder="困者" value="100">
+                    <span class="input-group-addon">级</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">增痛</span>
+                    <input type="text" class="form-control" id="B19" placeholder="增痛" value="100">
+                    <span class="input-group-addon">级</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">强者</span>
+                    <input type="text" class="form-control" id="B20" placeholder="强者" value="100">
+                    <span class="input-group-addon">级</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="B21" aria-label="..." title="">
+                    </span>
+                    <span class="input-group-addon">勾玉</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="B24" aria-label="..." title="">
+                    </span>
+                    <span class="input-group-addon">巫医</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="B25" aria-label="..." title="">
+                    </span>
+                    <span class="input-group-addon">武僧</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">尊者层数</span>
+                    <input type="text" class="form-control red" id="B28" placeholder="尊者层数" value="100">
+                    <span class="input-group-addon red">层</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">暴率buff</span>
+                    <input type="text" class="form-control green" id="B29" placeholder="暴率buff" value="0.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">目标数量</span>
+                    <input type="text" class="form-control red" id="B30" placeholder="目标数量" value="1">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">A类增伤</span>
+                    <input type="text" class="form-control green" id="B31" placeholder="A类增伤" value="43.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <button class="btn btn-sm" id="run1" style="width:100%">计算</button>
+            </div>
+            <div class="col-md-4">
+                <h6>通用加成</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control red" id="B33" placeholder="通用加成" value="--" readonly>
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <h6>精英加成</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="B34" placeholder="精英加成" value="--" readonly>
+                    <span class="input-group-addon">%</span>
+                </div>
+                <h6>叠满勾玉的攻速</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="B37" placeholder="叠满勾玉的攻速" value="--" readonly>
+                </div>
+                <h6>叠满勾玉的CDR</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="B38" placeholder="叠满勾玉的攻速" value="--" readonly>
+                    <span class="input-group-addon">%</span>
+                </div>
+                <h6>秒伤（白怪）</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="B39" placeholder="叠满勾玉的攻速" value="--" readonly>
+                </div>
+                <h6>秒伤（精英）</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="B40" placeholder="叠满勾玉的攻速" value="--" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 style="text-align: center">对照组</h2>
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">武器DPH</span>
+                    <input type="text" class="form-control green" id="C3" placeholder="武器DPH" value="2222.7">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">其他均伤</span>
+                    <input type="text" class="form-control green" id="C4" placeholder="其他均伤" value="550">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">智力</span>
+                    <input type="text" class="form-control green" id="C5" placeholder="智力" value="21000">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">电伤</span>
+                    <input type="text" class="form-control red" id="C6" placeholder="电伤" value="0.00">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">火伤</span>
+                    <input type="text" class="form-control red" id="C7" placeholder="火伤" value="20.00">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">奥伤</span>
+                    <input type="text" class="form-control red" id="C8" placeholder="奥伤" value="19.00">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">爆率</span>
+                    <input type="text" class="form-control green" id="C9" placeholder="爆率" value="64.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">爆伤</span>
+                    <input type="text" class="form-control green" id="C10" placeholder="爆伤" value="480.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">精英伤</span>
+                    <input type="text" class="form-control green" id="C11" placeholder="精英伤" value="0.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">范围伤害</span>
+                    <input type="text" class="form-control red" id="C12" placeholder="范围伤害" value="100">
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">面板CDR</span>
+                    <input type="text" class="form-control" id="C13" placeholder="面板CDR" value="50.00">
+                    <span class="input-group-addon">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">面板攻速</span>
+                    <input type="text" class="form-control" id="C14" placeholder="面板攻速" value="1.54">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">武器攻速</span>
+                    <input type="text" class="form-control" id="C15" placeholder="武器攻速" value="1.4">
+                </div>
+                <br>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">困者</span>
+                    <input type="text" class="form-control" id="C18" placeholder="困者" value="100">
+                    <span class="input-group-addon">级</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">增痛</span>
+                    <input type="text" class="form-control" id="C19" placeholder="增痛" value="100">
+                    <span class="input-group-addon">级</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">强者</span>
+                    <input type="text" class="form-control" id="C20" placeholder="强者" value="100">
+                    <span class="input-group-addon">级</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="C21" aria-label="..." title="">
+                    </span>
+                    <span class="input-group-addon">勾玉</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="C24" aria-label="..." title="">
+                    </span>
+                    <span class="input-group-addon">巫医</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="C25" aria-label="..." title="">
+                    </span>
+                    <span class="input-group-addon">武僧</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">尊者层数</span>
+                    <input type="text" class="form-control red" id="C28" placeholder="尊者层数" value="100">
+                    <span class="input-group-addon red">层</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">暴率buff</span>
+                    <input type="text" class="form-control green" id="C29" placeholder="暴率buff" value="0.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon red">目标数量</span>
+                    <input type="text" class="form-control red" id="C30" placeholder="目标数量" value="1">
+                </div>
+                <br>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon green">A类增伤</span>
+                    <input type="text" class="form-control green" id="C31" placeholder="A类增伤" value="43.00">
+                    <span class="input-group-addon green">%</span>
+                </div>
+                <br>
+                <button class="btn btn-sm" id="run2" style="width:100%">计算</button>
+            </div>
+            <div class="col-md-4">
+                <h6>通用加成</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control red" id="C33" placeholder="通用加成" value="--" readonly>
+                    <span class="input-group-addon red">%</span>
+                </div>
+                <h6>精英加成</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="C34" placeholder="精英加成" value="--" readonly>
+                    <span class="input-group-addon">%</span>
+                </div>
+                <h6>叠满勾玉的攻速</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="C37" placeholder="叠满勾玉的攻速" value="--" readonly>
+                </div>
+                <h6>叠满勾玉的CDR</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="C38" placeholder="叠满勾玉的攻速" value="--" readonly>
+                    <span class="input-group-addon">%</span>
+                </div>
+                <h6>秒伤（白怪）</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="C39" placeholder="叠满勾玉的攻速" value="--" readonly>
+                </div>
+                <h6>秒伤（精英）</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="C40" placeholder="叠满勾玉的攻速" value="--" readonly>
+                </div>
+                <h6>提升比例</h6>
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" id="C41" placeholder="提升比例" value="--" readonly>
+                    <span class="input-group-addon">%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<script type="text/javascript" src="http://nga.cn/s/js/ngafooter.js"></script>
+<script src='http://w.cnzz.com/c.php?id=30039253' type='text/javascript'></script>
+<script src='http://w.cnzz.com/c.php?id=1254438192' type='text/javascript'></script>
+<script>
+$(document).ready(function () {
+        function run1() {
+            for (var i = 0; i < 41; i++) {
+                window['B' + i] = Number($('#B' + i).val())
+            }
+            B6 /= 100;
+            B7 /= 100;
+            B8 /= 100;
+            B9 /= 100;
+            B10 /= 100;
+            B11 /= 100;
+            B12 /= 100;
+            B13 /= 100;
+            B29 /= 100;
+            B31 /= 100;
+            B21 = $('#B21').prop('checked') ? 1 : 0;
+            B24 = $('#B24').prop('checked') ? 1 : 0;
+            B25 = $('#B25').prop('checked') ? 1 : 0;
+            window.B33 = $('#B33').val(((B3 + B4) * (1 + B5 * 0.01) * (1 + (B9 + B29) * B10) * (1 + 0.15 + 0.003 * B18) * (1 + (B20 > -1 ? 1 : 0) * 0.2) * (1 + B31) * 65) * 100).val() / 100;
+            window.B34 = $('#B34').val(((B3 + B4) * (1 + B5 * 0.01) * (1 + (B9 + B29) * B10) * (1 + B11 + (B20 > 24 ? 1 : 0) * 0.15) * (1 + 0.15 + 0.003 * B18) * (1 + (B20 > -1 ? 1 : 0) * 0.2) * (1 + B31) * 65) * 100).val() / 100;
+            window.B37 = $('#B37').val((B14 / B15 + B24 * 0.2 + B25 * 0.1 + (B19 > 24 ? 1 : 0) * B30 * 0.03) * B15).val();
+            window.B38 = $('#B38').val(((1 - B13) * (1 - 0.15 * B21)) * 100).val() / 100;
+            window.B39 = $('#B39').val(((((((7.9 * 60 / (parseInt((60 / B37) * 24 / 25)) * (1 + 0.3) * (1 + B28 * 0.06) * (1 + (B28 + 50) / 2 * 0.06) / (60 / (parseInt((60 / B37) * 24 / 25))) * Math.ceil((20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) * B37) + (7.9 * 60 / (parseInt((60 / B37) * 24 / 25)) * (1 + 0.3) * (1 + B28 * 0.06)) / (60 / (parseInt((60 / B37) * 24 / 25))) * parseInt(20 + (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) - Math.ceil((20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) * B37))) + (((6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + B28 * 0.06) * (1 + (B28 + 50) / 2 * 0.06)) * (Math.floor(20 - ((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)))) + 1) + (6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + B28 * 0.06)) * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)))))) * (1 + B8) + (((parseInt(1 * 20 / (parseInt(20 / B37))) + 1) * 7 + (parseInt(2 * 20 / (parseInt(20 / B37))) - (parseInt(1 * 20 / (parseInt(20 / B37))) + 1) + 1) * 10.05 + (parseInt((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) * 1.75) + 1 - (parseInt(2 * 20 / (parseInt(20 / B37))) - (parseInt(1 * 20 / (parseInt(20 / B37))) + 1) + 1) - (parseInt(1 * 20 / (parseInt(20 / B37))) + 1)) * 13.1) * (1 + B28 * 0.06)) * (1 + B6)) * (1 + (B30 - 1) * 0.2 * B12) + (3.5 * (20) * (1 + B28 * 0.06) * (1 + 0.3) * ((50 + B28) / 2 * 0.06 + 1) * (Math.floor((20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) * 60 / 59) + 1) / 20 * (Math.min(parseInt((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) / (parseInt(60 / B37) / 60 * 19) * 19), 20)) + 3.5 * (20) * (1 + B28 * 0.06) * (1 + 0.3) * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) * 60 / 59) / 20 * (Math.min(parseInt((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) / (parseInt(60 / B37) / 60 * 19) * 19), 20))) * (1 + B8))) + (273 * (1 + (B28 + 50) / 2 * 0.06) * Math.floor(20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + 273 * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + 210 * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)))) * (B7 + 1) + (B19 * 0.5 + 25) * parseInt(20 + (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) / 3) * B30 * B33 / (Math.floor(20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))))).val();
+            window.B40 = $('#B40').val(((((((7.9 * 60 / (parseInt((60 / B37) * 24 / 25)) * (1 + 0.3) * (1 + B28 * 0.06) * (1 + (B28 + 50) / 2 * 0.06) / (60 / (parseInt((60 / B37) * 24 / 25))) * Math.ceil((20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) * B37) + (7.9 * 60 / (parseInt((60 / B37) * 24 / 25)) * (1 + 0.3) * (1 + B28 * 0.06)) / (60 / (parseInt((60 / B37) * 24 / 25))) * parseInt(20 + (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) - Math.ceil((20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) * B37))) + (((6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + B28 * 0.06) * (1 + (B28 + 50) / 2 * 0.06)) * (Math.floor(20 - ((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))), 0) + 1) + (6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + B28 * 0.06)) * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)))))) * (1 + B8) + (((parseInt(1 * 20 / (parseInt(20 / B37))) + 1) * 7 + (parseInt(2 * 20 / (parseInt(20 / B37))) - (parseInt(1 * 20 / (parseInt(20 / B37))) + 1) + 1) * 10.05 + (parseInt((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) * 1.75) + 1 - (parseInt(2 * 20 / (parseInt(20 / B37))) - (parseInt(1 * 20 / (parseInt(20 / B37))) + 1) + 1) - (parseInt(1 * 20 / (parseInt(20 / B37))) + 1)) * 13.1) * (1 + B28 * 0.06)) * (1 + B6)) * (1 + (B30 - 1) * 0.2 * B12) + (3.5 * (20) * (1 + B28 * 0.06) * (1 + 0.3) * ((50 + B28) / 2 * 0.06 + 1) * (Math.floor((20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) * 60 / 59) + 1) / 20 * (Math.min(parseInt((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) / (parseInt(60 / B37) / 60 * 19) * 19), 20)) + 3.5 * (20) * (1 + B28 * 0.06) * (1 + 0.3) * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) * 60 / 59) / 20 * (Math.min(parseInt((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)) / (parseInt(60 / B37) / 60 * 19) * 19), 20))) * (1 + B8))) + (273 * (1 + (B28 + 50) / 2 * 0.06) * Math.floor(20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + 273 * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + 210 * Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37)))) * (B7 + 1) + (B19 * 0.5 + 25) * parseInt(20 + (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) / 3) * B30 * B34 / (Math.floor(20 - (120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))) + Math.ceil((120 * (1 - B38) * (1 - B21 * 0.15) - 20) * parseInt(60 * 0.9 / B37) / (60 + parseInt(60 * 0.9 / B37))))).val();
+        }run1();
+        function run2() {
+            for (var i = 0; i < 41; i++) {
+                window['C' + i] = Number($('#C' + i).val())
+            }
+            C6 /= 100;
+            C7 /= 100;
+            C8 /= 100;
+            C9 /= 100;
+            C10 /= 100;
+            C11 /= 100;
+            C12 /= 100;
+            C13 /= 100;
+            C29 /= 100;
+            C31 /= 100;
+            C21 = $('#C21').prop('checked') ? 1 : 0;
+            C24 = $('#C24').prop('checked') ? 1 : 0;
+            C25 = $('#C25').prop('checked') ? 1 : 0;
+            window.C33 = $('#C33').val(((C3 + C4) * (1 + C5 * 0.01) * (1 + (C9 + C29) * C10) * (1 + 0.15 + 0.003 * C18) * (1 + (C20 > -1 ? 1 : 0) * 0.2) * (1 + C31) * 65) * 100).val() / 100;
+            window.C34 = $('#C34').val(((C3 + C4) * (1 + C5 * 0.01) * (1 + (C9 + C29) * C10) * (1 + C11 + (C20 > 24 ? 1 : 0) * 0.15) * (1 + 0.15 + 0.003 * C18) * (1 + (C20 > -1 ? 1 : 0) * 0.2) * (1 + C31) * 65) * 100).val() / 100;
+            window.C37 = $('#C37').val((C14 / C15 + C24 * 0.2 + C25 * 0.1 + (C19 > 24 ? 1 : 0) * C30 * 0.03) * C15).val();
+            window.C38 = $('#C38').val(((1 - C13) * (1 - 0.15 * C21)) * 100).val() / 100;
+            window.C39 = $('#C39').val(((((((7.9 * 60 / (parseInt((60 / C37) * 24 / 25)) * (1 + 0.3) * (1 + C28 * 0.06) * (1 + (C28 + 50) / 2 * 0.06) / (60 / (parseInt((60 / C37) * 24 / 25))) * Math.ceil((20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) * C37) + (7.9 * 60 / (parseInt((60 / C37) * 24 / 25)) * (1 + 0.3) * (1 + C28 * 0.06)) / (60 / (parseInt((60 / C37) * 24 / 25))) * parseInt(20 + (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) - Math.ceil((20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) * C37))) + (((6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + C28 * 0.06) * (1 + (C28 + 50) / 2 * 0.06)) * (Math.floor(20 - ((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)))) + 1) + (6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + C28 * 0.06)) * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)))))) * (1 + C8) + (((parseInt(1 * 20 / (parseInt(20 / C37))) + 1) * 7 + (parseInt(2 * 20 / (parseInt(20 / C37))) - (parseInt(1 * 20 / (parseInt(20 / C37))) + 1) + 1) * 10.05 + (parseInt((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) * 1.75) + 1 - (parseInt(2 * 20 / (parseInt(20 / C37))) - (parseInt(1 * 20 / (parseInt(20 / C37))) + 1) + 1) - (parseInt(1 * 20 / (parseInt(20 / C37))) + 1)) * 13.1) * (1 + C28 * 0.06)) * (1 + C6)) * (1 + (C30 - 1) * 0.2 * C12) + (3.5 * (20) * (1 + C28 * 0.06) * (1 + 0.3) * ((50 + C28) / 2 * 0.06 + 1) * (Math.floor((20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) * 60 / 59) + 1) / 20 * (Math.min(parseInt((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) / (parseInt(60 / C37) / 60 * 19) * 19), 20)) + 3.5 * (20) * (1 + C28 * 0.06) * (1 + 0.3) * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) * 60 / 59) / 20 * (Math.min(parseInt((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) / (parseInt(60 / C37) / 60 * 19) * 19), 20))) * (1 + C8))) + (273 * (1 + (C28 + 50) / 2 * 0.06) * Math.floor(20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + 273 * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + 210 * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)))) * (C7 + 1) + (C19 * 0.5 + 25) * parseInt(20 + (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) / 3) * C30 * C33 / (Math.floor(20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))))).val();
+            window.C40 = $('#C40').val(((((((7.9 * 60 / (parseInt((60 / C37) * 24 / 25)) * (1 + 0.3) * (1 + C28 * 0.06) * (1 + (C28 + 50) / 2 * 0.06) / (60 / (parseInt((60 / C37) * 24 / 25))) * Math.ceil((20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) * C37) + (7.9 * 60 / (parseInt((60 / C37) * 24 / 25)) * (1 + 0.3) * (1 + C28 * 0.06)) / (60 / (parseInt((60 / C37) * 24 / 25))) * parseInt(20 + (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) - Math.ceil((20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) * C37))) + (((6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + C28 * 0.06) * (1 + (C28 + 50) / 2 * 0.06)) * (Math.floor(20 - ((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))), 0) + 1) + (6.04 * (1 / (20 / 35)) * (1 + 0.3) * (1 + C28 * 0.06)) * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)))))) * (1 + C8) + (((parseInt(1 * 20 / (parseInt(20 / C37))) + 1) * 7 + (parseInt(2 * 20 / (parseInt(20 / C37))) - (parseInt(1 * 20 / (parseInt(20 / C37))) + 1) + 1) * 10.05 + (parseInt((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) * 1.75) + 1 - (parseInt(2 * 20 / (parseInt(20 / C37))) - (parseInt(1 * 20 / (parseInt(20 / C37))) + 1) + 1) - (parseInt(1 * 20 / (parseInt(20 / C37))) + 1)) * 13.1) * (1 + C28 * 0.06)) * (1 + C6)) * (1 + (C30 - 1) * 0.2 * C12) + (3.5 * (20) * (1 + C28 * 0.06) * (1 + 0.3) * ((50 + C28) / 2 * 0.06 + 1) * (Math.floor((20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) * 60 / 59) + 1) / 20 * (Math.min(parseInt((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) / (parseInt(60 / C37) / 60 * 19) * 19), 20)) + 3.5 * (20) * (1 + C28 * 0.06) * (1 + 0.3) * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) * 60 / 59) / 20 * (Math.min(parseInt((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)) / (parseInt(60 / C37) / 60 * 19) * 19), 20))) * (1 + C8))) + (273 * (1 + (C28 + 50) / 2 * 0.06) * Math.floor(20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + 273 * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + 210 * Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37)))) * (C7 + 1) + (C19 * 0.5 + 25) * parseInt(20 + (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) / 3) * C30 * C34 / (Math.floor(20 - (120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))) + Math.ceil((120 * (1 - C38) * (1 - C21 * 0.15) - 20) * parseInt(60 * 0.9 / C37) / (60 + parseInt(60 * 0.9 / C37))))).val();
+        }run2();
+        function compare(){
+            window.C41=$('#C41').val((C40/B40-1)*100).val()/100
+        }compare();
+        $('#run1').click(function(){
+            run1();
+            compare()
+        });
+        $('#run2').click(function(){
+            run2();
+            compare()
+        })
+    })
+</script>
+</body>
+</html>
